@@ -131,3 +131,6 @@ dist
 
 # Python
 __pycache__
+
+# DB
+db_data/

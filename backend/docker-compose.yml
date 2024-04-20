@@ -10,8 +10,14 @@ services:
       - db
 
   db:
-    image: mongo
+    image: postgres:16-alpine
+    container_name: db
     restart: always
+    ports: 
+      - "5432:5432"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+      - POSTGRES_DB=${PGDATABASE}
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
