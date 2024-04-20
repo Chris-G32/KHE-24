@@ -1,6 +1,6 @@
 .primary-btn {
     background-color: var(--primary);
-    color: var(--text-on-primary)
+    color: var(--text-on-primary);
 }
 .primary-btn:hover {
     background-color: var(--primary-dark);
@@ -25,6 +25,6 @@
     min-width: 4.5rem;
     max-width: 10rem;
     border-radius: var(--btn-border-radius);
-    transition:var(--transition);
+    transition: var(--transition);
     cursor: pointer;
 }
