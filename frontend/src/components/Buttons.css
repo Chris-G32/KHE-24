@@ -1,0 +1,30 @@
+.primary-btn {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+}
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.secondary-btn {
+    background-color: var(--secondary);
+    color: var(--text-on-secondary);
+}
+.secondary-btn:hover {
+    background-color: var(--secondary-dark);
+}
+
+.disabled-btn {
+    background-color: var(--disabled);
+    color: white;
+    cursor: default !important;
+}
+
+.btn {
+    height: 3rem;
+    min-width: 4.5rem;
+    max-width: 10rem;
+    border-radius: var(--btn-border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+}
