@@ -11,9 +11,9 @@ class LangToolAnalyzer:
         self.lang_tool=lang.LanguageTool(language)
     def analyze_spelling_and_grammar(self, text: str):
         def is_grammar_error(item):
-            return item.ruleIssueType=='grammar'
+            return item.ruleIssueType=='grammar' 
         def is_spelling_error(item):
-            return item.ruleIssueType=='misspelling'
+            return item.ruleIssueType=='misspelling' and item.ruleId!='MORFOLOGIK_RULE_EN_US'#Ignore acronym issues with morfologik
         results=self.lang_tool.check(text)
         grammar_issues=list(filter(is_grammar_error,results))
         spelling_issues=list(filter(is_spelling_error,results))
