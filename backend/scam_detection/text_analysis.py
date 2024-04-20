@@ -30,23 +30,3 @@ class TextAnalysisTool:
         return self.spell_checker.analyze_spelling(text)
     def check_grammar_errors(self,text:str):
         return self.grammar_checker.analyze_grammar(text)
-
-
-# def analyze_spelling(text:str):
-#     words=tokenize_text(text)
-#     sp = SpellChecker()
-#     unknown=sp.unknown(words)
-#     return (len(unknown),len(words))
-
-# def analyze_grammar(text:str):
-#     def is_grammar_error(item):
-#         return item.ruleIssueType=='grammar'
-#     tool=lang.LanguageTool("en-US")
-#     results=tool.check(text)
-#     filtered=list(filter(is_grammar_error,results))
-#     return filtered
-
-tool=AnalysisTool()
-text="I is chris. htis is my real! job posting."
-print(tool.check_grammar_errors(text))
-print(tool.check_spelling_errors(text))
