@@ -5,6 +5,7 @@
 *::after {
     margin: 0;
     padding: 0;
+    border: none;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -19,6 +20,12 @@ html {
     --primary-light: #3383F5;
     --primary-dark: #0057A3;
 
+    --secondary: #4BA3FF;
+    --secondary-light: #7FBFFF;
+    --secondary-dark: #1C85FF;
+
+    --disabled: #CCC;
+
     --background: #f5f5f5;
     --background-light: #fff;
     --background-dark: #E6E6E6;
@@ -26,6 +33,8 @@ html {
     --text: #333;
     --text-light: #666;
     --text-dark: #000;
+    --text-on-primary: #f5f5f5;
+    --text-on-secondary: #EEE;
 
     --success: #007A00;
     --danger: #A70000;
@@ -34,6 +43,10 @@ html {
     --title-text-size: 2.667rem;
     --subtitle-text-size: 1.778rem;
     --small-text-size: 0.875rem;
+
+    --btn-border-radius: 2rem;
+
+    --transition: all .3s ease;
 
     font-family: "Raleway", sans-serif;
     font-weight: 400;
@@ -44,6 +57,8 @@ html {
 
     margin: 0;
     padding: 0;
+    border: none;
+    outline: none;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
