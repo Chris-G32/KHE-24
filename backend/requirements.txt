@@ -1,3 +1,4 @@
 Flask
 language-tool-python
+psycopg2
 phonenumbers
