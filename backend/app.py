@@ -78,7 +78,7 @@ def report_route():
                 }
             },
             "result": {
-                "report_id": report_id,
+                "report_id": id,
                 "spelling_error_count": report.spelling_error_count,
                 "grammar_error_count": report.grammar_error_count,
                 "email_suspicious": report.email_suspicious,
