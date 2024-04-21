@@ -26,12 +26,3 @@ def report_route():
     }
 
     return jsonify(results)
-
-
-@app.route("/report", methods=['POST'])
-def report():
-    request_data = request.get_json()
-
-    response = {}
-
-    return jsonify(response)
