@@ -4,12 +4,14 @@ from scam_detection.analyzer import Analyzer
 from db.db import *
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 
 analyzer = Analyzer()
 
 @app.route("/report", methods=['POST', 'GET'])
+@cross_origin(origin='*')
 def report_route():
     if request.method == 'POST':
         request_data = request.get_json()
@@ -94,6 +96,7 @@ def report_route():
 
 
 @app.route("/bookmark", methods=['POST', 'GET'])
+@cross_origin(origin='*')
 def bookmark():
     if request.method == 'POST':
         request_data = request.get_json()
@@ -109,6 +112,7 @@ def bookmark():
         return res
     
 @app.route("/user", methods=['POST'])
+@cross_origin(origin='*')
 def user():
     request_data = request.get_json()
 
@@ -122,6 +126,7 @@ def user():
 
 
 @app.route("/feedback", methods=['POST', 'GET'])
+@cross_origin(origin='*')
 def feedback():
     if request.method == 'POST':
         request_data = request.get_json()

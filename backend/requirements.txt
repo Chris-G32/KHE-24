@@ -3,3 +3,4 @@ language-tool-python
 psycopg2-binary
 phonenumbers
 openai
+flask-cors
