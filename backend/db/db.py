@@ -23,9 +23,6 @@ def create_user(email, first_name, last_name) -> int:
     cur.close()
     return id
 
-def update_user():
-    pass
-
 def create_job(job:Job) -> int:
     cur = conn.cursor()
     sql_query = "INSERT INTO \"job\" (link, domain, position, description, contact_name, contact_phone, contact_email, company, post_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING job_id;"
@@ -46,8 +43,8 @@ def create_report(report:AnalysisResults, job_id:int) -> int:
 
 def create_feedback(feedback:Feedback):
     cur = conn.cursor()
-    sql_query = "INSERT INTO feedback (user_id, report_id, feedback) VALUES (%s, %s, %s);"
-    cur.execute(sql_query, (feedback.user_id, feedback.report_id, feedback.feedback))
+    sql_query = "INSERT INTO feedback (email, report_id, feedback) VALUES (%s, %s, %s);"
+    cur.execute(sql_query, (feedback.email, feedback.report_id, feedback.feedback))
     conn.commit()
     cur.close()
     pass
@@ -101,6 +98,20 @@ def get_user_by_email(email) -> User:
     user = User(user_id=res[0], email=res[1], first_name=res[6], last_name=res[7])
     cur.close()
     return user
+
+def get_feedback_by_report(report_id):
+    cur = conn.cursor()
+    sql_query = "SELECT email, feedback FROM feedback WHERE report_id=%s"
+    cur.execute(sql_query, (report_id, ))
+    res = cur.fetchall()
+    feedback_list = []
+    for element in res:
+        feedback_list.append({
+            'email': element[0],
+            'report_id': report_id,
+            'feedback': element[1]})
+    
+    return feedback_list
 
 if __name__ == '__main__':
     test_user = User('test2@gmail.com', 'test2', 'tester2')

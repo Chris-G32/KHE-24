@@ -1,4 +1,5 @@
 from scam_detection.job_analysis import Job, ContactInfo
+from models.models import Feedback
 from scam_detection.analyzer import Analyzer
 from db.db import *
 
@@ -116,3 +117,22 @@ def user():
         )
 
     return jsonify({"id": id})
+
+
+@app.route("/feedback", methods=['POST', 'GET'])
+def feedback():
+    if request.method == 'POST':
+        request_data = request.get_json()
+
+        feedback = Feedback(request_data['email'], request_data['report_id'], request_data['feedback'])
+
+        create_feedback(feedback)
+
+        return jsonify({'success': True})
+    
+    else:
+        report_id = request.args.get('report_id')
+
+        res = get_feedback_by_report(report_id)
+
+        return jsonify(res)
