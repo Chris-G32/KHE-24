@@ -1,4 +1,4 @@
-from job_analysis import ContactInfo
+from scam_detection.job_analysis import ContactInfo
 import re
 from phonenumbers import PhoneNumber,parse
 

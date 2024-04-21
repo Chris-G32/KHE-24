@@ -1,6 +1,6 @@
-import text_analysis as ta
-from job_analysis import *
-from contact_analyzer import ContactAnalyzer
+import scam_detection.text_analysis as ta
+from scam_detection.job_analysis import *
+from scam_detection.contact_analyzer import ContactAnalyzer
 import phonenumbers
 class Analyzer:
     def __init__(self):
@@ -17,6 +17,7 @@ class Analyzer:
             analysis.phone_suspicious=self.contact_analyzer.phone_number_is_suspicious(job.contact_info.phone_number)
         else:
             analysis.email_suspicious=None
+            analysis.phone_suspicious=None
         return analysis
 
 #Testing data legit
