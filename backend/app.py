@@ -23,7 +23,7 @@ def report_route():
         res = analyzer.run_analysis(job)
 
         job_id = create_job(job)
-        create_report(res, job_id)
+        report_id = create_report(res, job_id)
 
         results = {
             "job": {
@@ -40,6 +40,7 @@ def report_route():
                 }
             },
             "result": {
+                "report_id": report_id,
                 "spelling_error_count": res.spelling_error_count,
                 "grammar_error_count": res.grammar_error_count,
                 "email_suspicious": res.email_suspicious,
@@ -75,6 +76,7 @@ def report_route():
                 }
             },
             "result": {
+                "report_id": report_id,
                 "spelling_error_count": report.spelling_error_count,
                 "grammar_error_count": report.grammar_error_count,
                 "email_suspicious": report.email_suspicious,
