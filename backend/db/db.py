@@ -73,7 +73,8 @@ def get_report_by_id(id:int):
     report_result.ai_analysis=res[7]
     report_result.ai_summary=res[1]
     report_result.cumulative_risk=res[8]
-    return report_result
+    job_id = res[0]
+    return (report_result, job_id)
 
 def get_job_by_id(id:int):
     cur = conn.cursor()

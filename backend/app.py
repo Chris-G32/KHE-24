@@ -56,9 +56,23 @@ def report_route():
     else:
         id = request.args.get('report_id')
 
-        report = get_report_by_id(id)
+        (report, job_id) = get_report_by_id(id)
+        job = get_job_by_id(job_id)
 
         results = {
+            "job": {
+                "job_id": job_id,
+                "domain": job.domain,
+                "link": job.link,
+                "position_title": job.position_title,
+                "description": job.description,
+                "company": job.company,
+                "contact": {
+                    "phone_number": request_data["phone_number"],
+                    "email": job.contact_info.email,
+                    "name": job.contact_info.name
+                }
+            },
             "result": {
                 "spelling_error_count": report.spelling_error_count,
                 "grammar_error_count": report.grammar_error_count,
