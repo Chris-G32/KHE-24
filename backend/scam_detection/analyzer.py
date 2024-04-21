@@ -17,6 +17,7 @@ class Analyzer:
             analysis.phone_suspicious=self.contact_analyzer.phone_number_is_suspicious(job.contact_info.phone_number)
         else:
             analysis.email_suspicious=None
+            analysis.phone_suspicious=None
         return analysis
 
 #Testing data legit

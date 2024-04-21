@@ -15,7 +15,7 @@ analyzer = Analyzer()
 def report_route():
     request_data = request.get_json()
 
-    job = Job(request_data["domain"], request_data["link"])
+    job = Job(request_data["domain"], request_data["link"], request_data["position_title"], request_data["description"], request_data["company"], request_data["contact_info"])
 
     res = analyzer.run_analysis(job)
 

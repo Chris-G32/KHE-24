@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS public.job
     contact_phone CHARACTER VARYING(20),
     contact_email CHARACTER VARYING(255),
     location CHARACTER VARYING(255),
+    post_date DATE,
     PRIMARY KEY (job_id)
 );
 
