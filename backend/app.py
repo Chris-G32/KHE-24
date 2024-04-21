@@ -68,7 +68,7 @@ def report_route():
                 "description": job.description,
                 "company": job.company,
                 "contact": {
-                    "phone_number": request_data["phone_number"],
+                    "phone_number": phonenumbers.format_in_original_format(job.contact_info.phone_number, "US"),
                     "email": job.contact_info.email,
                     "name": job.contact_info.name
                 }
