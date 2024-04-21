@@ -35,13 +35,14 @@ class ContactInfo:
         print("Email:", self.email)
         
 class Job:
-    def __init__(self, domain, link, position_title, description,company, contact_info:ContactInfo=None):
+    def __init__(self, domain, link, position_title, description, company, post_date, contact_info:ContactInfo=None):
         self.domain = domain
         self.link = link
         self.position_title = position_title
         self.description = description  # Text
         self.contact_info = contact_info
-        self.company=company
+        self.company = company
+        self.post_date = post_date
 
     def display(self):
         print("Domain:", self.domain)

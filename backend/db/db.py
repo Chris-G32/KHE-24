@@ -27,8 +27,8 @@ def update_user():
 
 def create_job(job:Job) -> int:
     cur = conn.cursor()
-    sql_query = "INSERT INTO \"job\" (link, domain, position, description, contact_name, contact_phone, contact_email) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING job_id;"
-    cur.execute(sql_query, (job.link, job.domain, job.position_title, job.description, job.contact_info.name, job.contact_info.phone_number, job.contact_info.email))
+    sql_query = "INSERT INTO \"job\" (link, domain, position, description, contact_name, contact_phone, contact_email, company, post_date) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING job_id;"
+    cur.execute(sql_query, (job.link, job.domain, job.position_title, job.description, job.contact_info.name, job.contact_info.phone_number, job.contact_info.email, job.company, job.post_date))
     conn.commit()
     id = cur.fetchone()[0]
     cur.close()
@@ -72,11 +72,11 @@ def get_report_by_id(id:int):
 
 def get_job_by_id(id:int):
     cur = conn.cursor()
-    sql_query = "SELECT link, domain, position, description, contact_name, contact_phone, contact_email FROM job WHERE job_id=%s"
+    sql_query = "SELECT link, domain, position, description, contact_name, contact_phone, contact_email, company, post_date FROM job WHERE job_id=%s"
     cur.execute(sql_query, (id, ))
     res = cur.fetchone()
     contact_result = ContactInfo(phone_number=res[5], email=res[6], name=res[4])
-    job_result = Job(domain=res[1], link=res[0], position_title=res[2], description=res[3], contact_info=contact_result)
+    job_result = Job(domain=res[1], link=res[0], position_title=res[2], description=res[3], company=res[7], post_date=res[8], contact_info=contact_result)
     return job_result
 
 

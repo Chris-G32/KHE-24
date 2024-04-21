@@ -1,6 +1,3 @@
-import sys 
-import os
-from scam_detection.text_analysis import analyze_spelling
 from scam_detection.job_analysis import Job
 from scam_detection.analyzer import Analyzer
 from db.db import *
@@ -15,7 +12,8 @@ analyzer = Analyzer()
 def report_route():
     request_data = request.get_json()
 
-    job = Job(request_data["domain"], request_data["link"], request_data["position_title"], request_data["description"], request_data["company"], request_data["contact_info"])
+    contact = ContactInfo(phone_number=request_data["phone"], email=request_data["email"], name=request_data["name"])
+    job = Job(request_data["domain"], request_data["link"], request_data["position_title"], request_data["description"], request_data["company"], contact)
 
     res = analyzer.run_analysis(job)
 
