@@ -52,3 +52,31 @@ def report_route():
     }
 
     return jsonify(results)
+
+
+@app.route("/bookmark", methods=['POST', 'GET'])
+def bookmark():
+    if request.method == 'POST':
+        request_data = request.get_json()
+
+        create_bookmark(request_data["user_id"], request_data["report_id"])
+
+        return jsonify()
+    else:
+        user_id = request.args.get('user_id')
+
+        res = get_bookmarks_by_user(user_id)
+
+        return res
+    
+@app.route("/user", methods=['POST'])
+def user():
+    request_data = request.get_json()
+
+    id = create_user(
+        request_data["email"],
+        request_data["first_name"],
+        request_data["last_name"]
+        )
+
+    return jsonify({"id": id})

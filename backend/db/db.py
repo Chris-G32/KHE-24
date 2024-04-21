@@ -14,10 +14,10 @@ conn = psycopg2.connect(database = "khe2024",
                         password = "12345",
                         port = 5432)
 
-def create_user(user:User) -> int:
+def create_user(email, first_name, last_name) -> int:
     cur = conn.cursor()
     sql_query = "INSERT INTO \"user\" (email, first_name, last_name) VALUES (%s, %s, %s) RETURNING user_id;"
-    cur.execute(sql_query, (user.email, user.first_name, user.last_name))
+    cur.execute(sql_query, (email, first_name, last_name))
     conn.commit()
     id = cur.fetchone()[0]
     cur.close()
@@ -52,7 +52,11 @@ def create_feedback(feedback:Feedback):
     cur.close()
     pass
 
-def create_bookmark():
+def create_bookmark(user_id, report_id):
+    cur = conn.cursor()
+    sql_query = "INSERT INTO bookmarks (user_id, report_id) VALUES (%s, %s)"
+    cur.execute(sql_query, (user_id, report_id))
+    cur.close()
     pass
 
 def get_report_by_id(id:int):
@@ -81,8 +85,12 @@ def get_job_by_id(id:int):
     return job_result
 
 
-def get_bookmarks_by_user():
-    pass
+def get_bookmarks_by_user(user_id):
+    cur = conn.cursor()
+    sql_query = "SELECT * FROM bookmarks WHERE user_id=%s JOIN report ON bookmarks.report_id=report.report_id"
+    cur.execute(sql_query, (user_id, ))
+    res = cur.fetchall()
+    return res
 
 def get_user_by_email(email) -> User:
     cur = conn.cursor()
