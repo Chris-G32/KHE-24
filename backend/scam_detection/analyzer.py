@@ -2,6 +2,7 @@ import scam_detection.text_analysis as ta
 from scam_detection.job_analysis import *
 from scam_detection.contact_analyzer import ContactAnalyzer
 import phonenumbers
+import ai_analyzer
 class Analyzer:
     def __init__(self):
         self.text_analyzer=ta.LangToolAnalyzer()
@@ -19,6 +20,11 @@ class Analyzer:
             analysis.email_suspicious=None
             analysis.phone_suspicious=None
             
+        # AI Analysis
+        summary, risk = ai_analyzer.generate_GPT(job.description)
+        analysis.ai_summary = summary
+        analysis.ai_analysis = risk 
+
         analysis.cumulative_risk = self.calculate_final_risk(analysis)
         return analysis
     
