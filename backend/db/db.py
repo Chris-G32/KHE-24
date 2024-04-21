@@ -3,7 +3,7 @@ import sys
 sys.path.append('models')
 sys.path.append('scam_detection')
 
-from models import User, Feedback
+from models.models import User, Feedback
 from job_analysis import AnalysisResults, Job, ContactInfo
 
 import phonenumbers
