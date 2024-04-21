@@ -1,4 +1,5 @@
 import phonenumbers
+import copy
 class AnalysisResults:
     def __init__(self):
         self.spelling_error_count=None
@@ -40,7 +41,7 @@ class Job:
         self.link = link
         self.position_title = position_title
         self.description = description  # Text
-        self.contact_info = contact_info
+        self.contact_info = copy.deepcopy(contact_info)
         self.company = company
         self.post_date = post_date
 
