@@ -1,4 +1,4 @@
 Flask
 language-tool-python
-psycopg2
+psycopg2-binary
 phonenumbers

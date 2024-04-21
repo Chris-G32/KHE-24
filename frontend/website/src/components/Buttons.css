@@ -6,12 +6,36 @@
     background-color: var(--primary-dark);
 }
 
+.primary-btn-link {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+}
+.primary-btn-link:hover {
+    background-color: var(--primary-dark);
+}
+
 .secondary-btn {
     background-color: var(--secondary);
     color: var(--text-on-secondary);
 }
 .secondary-btn:hover {
     background-color: var(--secondary-dark);
+}
+
+.secondary-btn-link {
+    background-color: var(--secondary);
+    color: var(--text-on-secondary);
+}
+.secondary-btn-link:hover {
+    background-color: var(--secondary-dark);
+}
+
+.danger-btn {
+    background-color: var(--danger);
+    color: var(--text-on-primary);
+}
+.danger-btn:hover {
+    background-color: var(--text);
 }
 
 .disabled-btn {
@@ -22,9 +46,33 @@
 
 .btn {
     height: 3rem;
-    min-width: 4.5rem;
+    min-width: 6.5rem;
     max-width: 10rem;
     border-radius: var(--btn-border-radius);
     transition: var(--transition);
     cursor: pointer;
+    padding: 0.5rem;
+    font-size: var(--small-text-size);
+    font-weight: 400;
+    font-size: var(--small-text-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.btn-link {
+    height: 3rem;
+    min-width: 6.5rem;
+    max-width: 10rem;
+    border-radius: var(--btn-border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+    padding: 0.5rem;
+    text-decoration: none;
+    font-size: var(--small-text-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
 }
