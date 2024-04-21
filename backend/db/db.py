@@ -1,11 +1,12 @@
 import psycopg2
-import os
 import sys
 sys.path.append('models')
 sys.path.append('scam_detection')
 
 from models import User, Feedback
 from job_analysis import AnalysisResults, Job, ContactInfo
+
+import phonenumbers
 
 conn = psycopg2.connect(database = "khe2024", 
                         user = "postgres", 
@@ -28,7 +29,7 @@ def update_user():
 def create_job(job:Job) -> int:
     cur = conn.cursor()
     sql_query = "INSERT INTO \"job\" (link, domain, position, description, contact_name, contact_phone, contact_email, company, post_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING job_id;"
-    cur.execute(sql_query, (job.link, job.domain, job.position_title, job.description, job.contact_info.name, job.contact_info.phone_number.raw_input, job.contact_info.email, job.company, job.post_date))
+    cur.execute(sql_query, (job.link, job.domain, job.position_title, job.description, job.contact_info.name, phonenumbers.format_in_original_format(job.contact_info.phone_number, "US"), job.contact_info.email, job.company, job.post_date))
     conn.commit()
     id = cur.fetchone()[0]
     cur.close()
