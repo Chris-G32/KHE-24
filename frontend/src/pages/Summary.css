@@ -1,0 +1,61 @@
+#Summary {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.summary-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 3rem;
+    gap: 1rem;
+}
+
+.position-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 3rem;
+}
+
+.position-details h1 {
+    color: var(--primary);
+}
+
+.action-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.analysis-field {
+    display: flex;
+    margin: 0.75rem;
+}
+
+.analysis-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.analysis-pass {
+    color: var(--success);
+}
+
+.analysis-fail {
+    color: var(--danger);
+}
+
+.summary-section p {
+    text-align: left;
+}
