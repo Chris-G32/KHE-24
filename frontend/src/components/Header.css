@@ -1,0 +1,21 @@
+.header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--primary);
+    width: 100%;
+}
+
+.header_logo {
+    margin: 12px
+}
+
+.signin:hover {
+    background-color: var(--primary-light);
+}
+
+.signin {
+    background-color: transparent;
+    font-size:x-large;
+    padding: 12px;
+}
