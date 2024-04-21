@@ -1,0 +1,52 @@
+.header {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary);
+    width: 100%;
+    height: 4rem;
+    padding: 0.5rem 1rem;
+}
+
+.header_logo {
+    margin: 12px;
+    color: var(--text-on-primary);
+}
+
+/* .signin {
+    background-color: transparent;
+    font-size:x-large;
+    padding: 12px;
+    height: 100;
+    height: 100%;
+}
+.signin:hover {
+    background-color: var(--primary-light);
+} */
+
+.signin {
+    background-color: var(--background);
+    color: var(--primary);
+    height: 3rem;
+    min-width: 6.5rem;
+    max-width: 10rem;
+    border-radius: var(--btn-border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: var(--small-text-size);
+    font-weight: 700;
+    font-size: var(--small-text-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.signin:hover {
+    background-color: #B2B2B2;
+}
+
+.user-btn {
+    height: 100% !important;
+}
