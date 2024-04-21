@@ -18,7 +18,30 @@ class Analyzer:
         else:
             analysis.email_suspicious=None
             analysis.phone_suspicious=None
+            
+        analysis.cumulative_risk = self.calculate_final_risk(analysis)
         return analysis
+    
+    def calculate_final_risk(self, report:AnalysisResults):
+        flag_gc = report.grammar_error_count > 3
+        flag_sc = report.spelling_error_count > 3
+
+        if (report.ai_analysis.lower() == "very low"):
+            return report.ai_analysis
+        
+        if (report.ai_analysis.lower() == "low"):
+            temp = 0.5 + 0.05(report.link_suspicious + report.phone_suspicious) + 0.1(report.email_suspicious) + 0.20(flag_gc) + 0.10(flag_sc)
+            if   (temp < 0.51):  return "Very low"
+            elif (temp < 0.75):  return report.ai_analysis
+            else: return "Medium"
+        
+        if (report.ai_analysis.lower() == "medium"):
+            temp = 0.3 + 0.05(report.link_suspicious + report.phone_suspicious) + 0.2(report.email_suspicious) + 0.20(flag_gc) + 0.10(flag_sc)
+            if   (temp < 0.5):  return "Medium"
+            else: return "High"
+
+        if (report.ai_analysis.lower() == "high"): 
+            return report.ai_analysis  
 
 #Testing data legit
 # c=ContactInfo("3303475375","sarah.west@radiancetech.com","sarah west")
