@@ -9,7 +9,7 @@ function Header() {
             <SignInButton className="signin"/>
         </SignedOut>
         <SignedIn>
-            <UserButton />
+            <UserButton className='user-btn' />
         </SignedIn>
     </header>
     )    
@@ -17,9 +17,9 @@ function Header() {
 
 function Logo() {
     return (
-        <h1 className='header_logo'>
-            Logo
-        </h1>
+        <h2 className='header_logo'>
+            Scam Unlikely
+        </h2>
     )
 }
 
