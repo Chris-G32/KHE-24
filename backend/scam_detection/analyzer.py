@@ -17,8 +17,8 @@ class Analyzer:
             analysis.email_suspicious=self.contact_analyzer.email_is_suspicious(job.contact_info.email,job.company)
             analysis.phone_suspicious=self.contact_analyzer.phone_number_is_suspicious(job.contact_info.phone_number)
         else:
-            analysis.email_suspicious=None
-            analysis.phone_suspicious=None
+            analysis.email_suspicious=False
+            analysis.phone_suspicious=False
             
         # AI Analysis
         summary, risk = ai_analyzer.generate_GPT(job.description)
