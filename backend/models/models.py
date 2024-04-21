@@ -10,7 +10,7 @@ class User:
         self.salary = salary
 
 class Feedback:
-    def __init__(self, user_id, report_id, feedback):
-        self.user_id = user_id
+    def __init__(self, email, report_id, feedback):
+        self.email = email
         self.report_id = report_id
         self.feedback = feedback

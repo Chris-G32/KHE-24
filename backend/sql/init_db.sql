@@ -48,11 +48,10 @@ CREATE TABLE IF NOT EXISTS public.report
 
 CREATE TABLE IF NOT EXISTS public.feedback
 (
-    user_id INTEGER,
+    email CHARACTER VARYING(255),
     report_id INTEGER,
     feedback TEXT,
-    PRIMARY KEY (user_id, report_id),
-    FOREIGN KEY (user_id) REFERENCES public.user (user_id) MATCH SIMPLE,
+    PRIMARY KEY (email, report_id),
     FOREIGN KEY (report_id) REFERENCES public.report (report_id) MATCH SIMPLE
 );
 
