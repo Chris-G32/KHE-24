@@ -1,12 +1,18 @@
 from scam_detection.job_analysis import Job, ContactInfo
 from scam_detection.analyzer import Analyzer
 from db.db import *
+from auth.authentication import authenticate
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, g
 
 app = Flask(__name__)
 
 analyzer = Analyzer()
+
+@app.route('/test', methods=['GET'])
+def test_route():
+    authorized = authenticate(request)
+    return jsonify({"authorized": authorized})
 
 @app.route("/report", methods=['POST'])
 def report_route():
