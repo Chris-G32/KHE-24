@@ -20,6 +20,8 @@ class Analyzer:
             analysis.email_suspicious=False
             analysis.phone_suspicious=False
             
+        analysis.link_suspicious = False
+        
         # AI Analysis
         summary, risk = ai_analyzer.generate_GPT(job.description)
         analysis.ai_summary = summary
