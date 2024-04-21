@@ -1,0 +1,40 @@
+.loading-animation {
+    display: flex;
+    gap: 1.5rem;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.loading-dot {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary);
+    animation: bounce 1.2s ease-in-out infinite;
+}
+
+.loading-dot-1 {
+    animation-delay: 0s;
+
+}
+
+.loading-dot-2 {
+    animation-delay: .3s;
+    
+}
+
+.loading-dot-3 {
+    animation-delay: .6s;
+    
+}
