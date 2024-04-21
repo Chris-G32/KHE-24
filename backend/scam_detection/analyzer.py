@@ -36,13 +36,13 @@ class Analyzer:
             return report.ai_analysis
         
         if (report.ai_analysis.lower() == "low"):
-            temp = 0.5 + 0.05 * (report.link_suspicious + report.phone_suspicious) + 0.1(report.email_suspicious) + 0.20(flag_gc) + 0.10(flag_sc)
+            temp = 0.5 + 0.05 * (report.link_suspicious + report.phone_suspicious) + 0.1 * (report.email_suspicious) + 0.20 * (flag_gc) + 0.10 * (flag_sc)
             if   (temp < 0.51):  return "Very low"
             elif (temp < 0.75):  return report.ai_analysis
             else: return "Medium"
         
         if (report.ai_analysis.lower() == "medium"):
-            temp = 0.3 + 0.05 * (report.link_suspicious + report.phone_suspicious) + 0.2(report.email_suspicious) + 0.20(flag_gc) + 0.10(flag_sc)
+            temp = 0.3 + 0.05 * (report.link_suspicious + report.phone_suspicious) + 0.2 * (report.email_suspicious) + 0.20 * (flag_gc) + 0.10 * (flag_sc)
             if   (temp < 0.5):  return "Medium"
             else: return "High"
 
