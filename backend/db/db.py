@@ -87,7 +87,7 @@ def get_job_by_id(id:int):
 
 def get_bookmarks_by_user(user_id):
     cur = conn.cursor()
-    sql_query = "SELECT * FROM bookmarks WHERE user_id=%s JOIN report ON bookmarks.report_id=report.report_id"
+    sql_query = "SELECT * FROM bookmarks JOIN report ON bookmarks.report_id=report.report_id WHERE user_id=%s"
     cur.execute(sql_query, (user_id, ))
     res = cur.fetchall()
     return res
