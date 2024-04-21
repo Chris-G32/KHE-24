@@ -2,7 +2,7 @@ import scam_detection.text_analysis as ta
 from scam_detection.job_analysis import *
 from scam_detection.contact_analyzer import ContactAnalyzer
 import phonenumbers
-import ai_analyzer
+import scame_detection.ai_analyzer
 class Analyzer:
     def __init__(self):
         self.text_analyzer=ta.LangToolAnalyzer()
