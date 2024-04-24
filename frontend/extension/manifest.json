@@ -8,6 +8,10 @@
         "default_title": "React Chrome Extension"
       },
   "permissions":["scripting","activeTab","storage"],
-  "host_permissions":["http://*/*","https://*/*"]
+  "content_scripts": [{
+    "matches":[ "<all_urls>"],
+    "js": ["public/contentScript.js"]
+  }],
+"host_permissions": ["<all_urls>"]
 }
 
